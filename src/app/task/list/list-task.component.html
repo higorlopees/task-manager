@@ -19,7 +19,7 @@
       </td>
       <td style="width: 70px" class="text-center">
         <input 
-          type="checkbox" [value]="task.id" [checked]="task.done">
+          type="checkbox" [value]="task.id" [checked]="task.done" (click)="changeStatus(task)">
       </td>
       <td class="text-center" style="width: 200px">
         <a [routerLink]="['/tasks/edit', task.id]"
