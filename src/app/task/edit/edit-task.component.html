@@ -1,1 +1,39 @@
-<p>edit-task works!</p>
+<h1>Edit task</h1>
+
+<div class="well">
+  <form #taskForm="ngForm">
+    <div class="form-group">
+      <label for="name">Task:</label>
+      <input 
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        [(ngModel)]="task.name"
+        #name="ngModel"
+        minlength="5" 
+        required> 
+      <div class="alert alert-danger" *ngIf="name.errors && (name.dirty || name.touched)">
+        <div [hidden]="!name.errors.required">
+          Type the task.
+        </div>
+        <div [hidden]="!name.errors.minlength">
+          The task must contain at least 5 characters.
+        </div>
+      </div>
+    </div>
+    <div class="form-group text-center">
+      <input 
+        type="submit"
+        class="btn btn-success"
+        (click)="edit()"
+        value="Edit"
+        [disabled]="!taskForm.form.valid">
+      <a [routerLink]="['/tasks']"
+        class="btn btn-default">
+        <span class="glyphicon glyphicon-chevron-left" 
+          aria-hidden="true"></span> Back
+      </a>
+    </div>
+  </form>
+</div>
