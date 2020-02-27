@@ -6,9 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { TaskService } from './shared';
 import { ListTaskComponent } from './list';
 import { AddTaskComponent } from './add';
+import { EditTaskComponent } from './edit';
 
 @NgModule({
-  declarations: [ListTaskComponent, AddTaskComponent],
+  declarations: [ListTaskComponent, AddTaskComponent, EditTaskComponent],
   imports: [
     CommonModule,
     RouterModule,
